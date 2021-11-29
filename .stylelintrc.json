@@ -1,0 +1,15 @@
+{
+    "extends": [
+        "stylelint-config-airbnb",
+        "stylelint-config-rational-order",
+        "stylelint-prettier/recommended"
+    ],
+    "plugins": [
+        "stylelint-order",
+        "stylelint-scss"
+    ],
+    "rules": {
+        "max-nesting-depth": 10,
+        "selector-max-id": 10
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "plugin:markdown/recommended",
+        "plugin:prettier/recommended",
+        "prettier/prettier",
+        "prettier"
+    ],
+    "plugins": ["prettier", "simple-import-sort"],
+    "globals": {
+        "__DEBUG__": true,
+        "__WEBPACK__": true,
+        "__VERSION__": true,
+        "__BRANCH__": true
+    },
+    "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "no-throw-literal": "off"
+    }
+}

@@ -2,30 +2,29 @@
   "name": "trial",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.0",
-    "react-scripts": "4.0.3",
-    "typescript": "~4.1.5"
-  },
   "scripts": {
+    "lint": "yarn run lint:js && yarn run lint:styles",
+    "lint:js": "eslint --ignore-path .gitignore '{src,test,style}/**/*.{js,jsx,ts,tsx}'",
+    "lint:styles": "stylelint --ignore-path .gitignore '{src,test,style}/**/*.{css,scss,sass}'",
+    "lint:fix": "yarn run lint:js --fix && yarn run lint:styles --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "lint-staged": {
+    "{src,test,style}/**/*.{js,jsx,ts,tsx}": [
+      "yarn run lint:js --fix",
+      "prettier --write"
+    ],
+    "{src,test,style}/**/*.{css,scss,sass}": [
+      "yarn run lint:styles --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": {
     "production": [
@@ -38,5 +37,66 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.7",
+    "antd": "^4.17.2",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.0",
+    "react-scripts": "4.0.3",
+    "sass": "^1.43.5",
+    "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/lodash": "^4.14.177",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.7",
+    "@types/redux-mock-store": "^1.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.0.0",
+    "@typescript-eslint/parser": "^4.0.0",
+    "@typescript-eslint/typescript-estree": "^5.4.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-stylelint": "^13.1.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-markdown": "^2.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-testing-library": "^3.9.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-mock-axios": "^4.4.0",
+    "prettier": "^2.2.1",
+    "redux-mock-store": "^1.5.4",
+    "stylelint": "^13.12.0",
+    "stylelint-config-airbnb": "^0.0.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0",
+    "stylelint-scss": "^3.19.0"
   }
 }

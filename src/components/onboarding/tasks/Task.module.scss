@@ -1,0 +1,31 @@
+
+
+.task {
+  margin-bottom: 8px;
+  background-color: #eee;
+  transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background-color: #e6f7ff;
+
+    .checkbox {
+      color: #1890ff;
+    }
+  }
+}
+
+.checkbox {
+  width: 100%;
+  padding: 8px;
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
